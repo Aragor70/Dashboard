@@ -1,0 +1,30 @@
+header
+{
+    width: 100%;
+}
+header h2
+{
+    width: 100%;
+    margin: 0;
+    margin-bottom: 7.5px;
+    padding: 7.5px 7.5px 0 7.5px;
+}
+header ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 7.5px;
+    gap: 7.5px;
+}
+header ul li
+{
+    width: 100px;
+    padding: 0 6.5px;
+    text-align: center;
+    border: 1px solid #000;
+    cursor: pointer;
+}

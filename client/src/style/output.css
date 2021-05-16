@@ -1,0 +1,18 @@
+main
+{
+    width: 100%;
+    height: auto;
+}
+
+.page-title
+{
+    padding: 0 7.5px 0 7.5px;
+    margin: 0;
+}
+
+.output
+{
+    width: 100%;
+    height: auto;
+    padding: 7.5px;
+}

@@ -1,0 +1,52 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    border-radius: 7.5px;
+    font-family: "Lato", sans-serif;
+}
+html
+{
+    width: 100vw;
+    margin: 0!important;
+    padding: 0!important;
+}
+body
+{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 0!important;
+    padding: 0;
+    text-align: justify;
+    line-height: 25pt;
+    background-color: #EBEBEB;
+    outline: none;
+    word-break: break-all;
+}
+
+a
+{
+    text-decoration: none;
+    color: #000;
+    width: auto;
+}
+hr
+{
+    color: #000;
+    width: 100%;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.shadow
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 9;
+}
