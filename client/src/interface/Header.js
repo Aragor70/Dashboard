@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 
-
-const Header = () => {
+const Header = ({ history }) => {
 
 
 
@@ -10,13 +10,13 @@ const Header = () => {
             <h2>Finance dashboard</h2>
         
             <ul>
-                <li>home page</li>
-                <li>mail box</li>
-                <li>trello</li>
+                <li onClick={e=>history.push('/')}>home page</li>
+                <li onClick={e=>history.push('/mail-box')}>mail box</li>
+                <li onClick={e=>history.push('/trello')}>trello</li>
             </ul>
 
             <hr />
         </Fragment>
     );
 }
-export default Header;
+export default withRouter(Header);
