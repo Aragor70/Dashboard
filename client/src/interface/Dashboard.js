@@ -14,7 +14,7 @@ const Dashboard = ({ data, labels }) => {
     return (
         <Fragment>
             
-            <Chart labels={labels} label="Country" data={data} />
+            <Chart label="Country" data={data} labels={labels} />
 
 
         </Fragment>

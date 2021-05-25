@@ -62,8 +62,6 @@ const App = () => {
 
   useEffect(() => {
 
-
-
     const doFilter = dataset.filter((element) => region ? element.region === region : true ).filter((element) => year ? element.year === year : true )
     
     /* const selectYears = dataset.map((element) => element.year)
@@ -78,7 +76,7 @@ const App = () => {
     setRegions(regionNames)
     setPlatforms(platformNames)
     
-    if(platform && !platformNames.includes(platform)) setPlatform("");
+    if (platform && !platformNames.includes(platform)) setPlatform("");
     
   }, [year, region]);
 
@@ -105,21 +103,21 @@ const App = () => {
             <h3 className="page-title">Summary</h3>
 
             <div className="choice-box">
-              <p>Year</p>
+              <p><span>Year</span></p>
               <ul>
-                <li onClick={e=> setYear(null)}>All</li>
+                <li style={ year ? { color: '#000' } : { color: 'green' } } onClick={e=> setYear(null)}><span>All</span></li>
                 {
-                  years.map((element, index) => <li key={index} onClick={e=> setYear(element)}>{element}</li>)
+                  years.map((element, index) => <li style={ element === year ? { color: 'green' } : { color: '#000' } } key={index} onClick={e=> setYear(element)}><span>{element}</span></li>)
                 }
               </ul>
             </div>
 
             <div className="choice-box">
-              <p onClick={e=> setRegion(null)}>region</p>
+              <p><span>Region</span></p>
               <ul>
-                <li onClick={e=> setRegion("")}>All</li>
+                <li style={ region ? { color: '#000' } : { color: 'green' } } onClick={e=> setRegion(null)} onClick={e=> setRegion("")}><span>All</span></li>
                 {
-                  regions.filter((element) => year ? element === year : true ).map((element, index) => <li key={index} onClick={e=> setRegion(element)}>{element}</li>)
+                  regions.map((element, index) => <li style={ element === region ? { color: 'green' } : { color: '#000' } } key={index} onClick={e=> setRegion(element)}><span>{element}</span></li>)
                 }
 
                 
@@ -127,11 +125,11 @@ const App = () => {
             </div>
             
             <div className="choice-box">
-              <p>Platform</p>
+              <p><span>Platform</span></p>
               <ul>
-                <li onClick={e=> setPlatform("")}>All</li>
+                <li style={ platform ? { color: '#000' } : { color: 'green' } } onClick={e=> setPlatform("")}><span>All</span></li>
                 {
-                  platforms.map((element, index) => <li key={index} onClick={e=> setPlatform(element)}>{makeFirstUpper(element)}</li>)
+                  platforms.map((element, index) => <li style={ element === platform ? { color: 'green' } : { color: '#000' } } key={index} onClick={e=> setPlatform(element)}><span>{makeFirstUpper(element)}</span></li>)
                 }
 
               </ul>

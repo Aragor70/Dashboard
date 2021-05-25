@@ -13,4 +13,15 @@
 {
     margin: 0;
     border: 1px solid #000;
+    cursor: default;
+}
+
+.choice-box ul li
+{
+    cursor: default;
+}
+
+.choice-box ul li span
+{
+    cursor: pointer;
 }
