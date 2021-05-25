@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/', (async( req, res ) => {
     try {
 
+        
 
 
     } catch (err) {
@@ -17,4 +18,3 @@ router.get('/', (async( req, res ) => {
 }));
 
 module.exports = router;
-
