@@ -38,12 +38,12 @@ router.post('/', [
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if ( !user ) {
-        return next(new ErrorResponse('Invalid credentials', 422))
+        return next(new Error('Invalid credentials', 422))
     }
     
     const isMatch = await bcrypt.compare(password, user.password);
     if ( !isMatch ) {
-        return next(new ErrorResponse('Invalid credentials', 422))
+        return next(new Error('Invalid credentials', 422))
     }
 
     

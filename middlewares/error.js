@@ -1,4 +1,4 @@
-const ErrorResponse = require("../tools/errorResponse");
+
 
 const errorHandler = (err, req, res, next) => {
 
@@ -10,7 +10,7 @@ const errorHandler = (err, req, res, next) => {
     // if unique record exists in db already - duplication 
     if (error.code === 11000) {
         const location = Object.keys(err.keyValue)[0]
-        error = new ErrorResponse(`This ${location} already exists.`, 400)
+        error = new Error(`This ${location} already exists.`, 400)
     }
 
     // case of unhandled validation by express-validator
@@ -18,7 +18,7 @@ const errorHandler = (err, req, res, next) => {
         
         const location = Object.values(err.errors).map(value => value.path).join(', ')
         
-        error = new ErrorResponse(`Please enter ${location}.`, 400)
+        error = new Error(`Please enter ${location}.`, 400)
     }
 
     // case of unhandled error
