@@ -2,7 +2,6 @@ const express = require('express');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const asyncHandler = require('../../middlewares/async');
-const ErrorResponse = require('../../tools/errorResponse');
 const auth = require('../../middlewares/auth');
 const router = express.Router();
 const gravatar = require('gravatar');
@@ -26,19 +25,19 @@ router.post('/', [
     const errors = validationResult(req)
     
     if (!errors.isEmpty()) {
-        return next(new ErrorResponse(errors.array()[0].msg, 422))
+        return next(new Error(errors.array()[0].msg, 422))
     }
 
     const {name, email, password, passwordConfirmation} = req.body;
 
     if (password !== passwordConfirmation) {
-        return next(new ErrorResponse(`Passwords are not equal.`, 422))
+        return next(new Error(`Passwords are not equal.`, 422))
     }
 
     let user = await User.findOne({ email })
     
     if( user ) {
-        return next(new ErrorResponse(`E-mail already exists.`, 422) )
+        return next(new Error(`E-mail already exists.`, 422) )
     }
     const avatar = gravatar.url(email, {s: '200', r: 'pg', d: 'mm'})
     const nameUpperCase = name.charAt(0).toUpperCase() + name.slice(1)
@@ -84,18 +83,18 @@ router.put('/', [auth, [
 ]], asyncHandler( async(req, res, next) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
-        return next(new ErrorResponse(errors.array()[0].msg, 422))
+        return next(new Error(errors.array()[0].msg, 422))
     }
     const { status, two_factor, name, email, password, new_password } = req.body;
 
     
     let user = await User.findById(req.user.id);
     if (!user) {
-        return next(new ErrorResponse('Invalid credentials.', 422))
+        return next(new Error('Invalid credentials.', 422))
     }
     const isMatch = await bcrypt.compare(password, user.password)
     if (!isMatch) {
-        return next(new ErrorResponse('Invalid credentials.', 422))
+        return next(new Error('Invalid credentials.', 422))
     }
     if (new_password) {
         const salt = await bcrypt.genSalt(10);
@@ -128,7 +127,7 @@ router.put('/', [auth, [
         await user.save()
         return res.json({ success: true, message: 'User name changed.', user })
     } else if (name && (name.toString().length < 2 || name.toString().length > 22)) {
-        return next(new ErrorResponse('Enter valid name (2-22 characters).', 422))
+        return next(new Error('Enter valid name (2-22 characters).', 422))
     }
 
     return res.json({ success: false, message: 'Please try again.', user })
@@ -144,7 +143,7 @@ router.post('/confirm', [auth, [
 ]], async(req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return next(new ErrorResponse(errors.array()[0].msg, 422))
+        return next(new Error(errors.array()[0].msg, 422))
     }
     const { password } = req.body;
 
@@ -152,7 +151,7 @@ router.post('/confirm', [auth, [
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-        return next(new ErrorResponse('Invalid credentials.', 422))
+        return next(new Error('Invalid credentials.', 422))
     }
 
     return res.json({ success: true, confirm: true })
@@ -169,7 +168,7 @@ router.delete('/', [auth, [
 ]], asyncHandler( async(req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return next(new ErrorResponse(errors.array()[0].msg, 422))
+        return next(new Error(errors.array()[0].msg, 422))
     }
     const { password } = req.body;
 
@@ -177,7 +176,7 @@ router.delete('/', [auth, [
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-        return next(new ErrorResponse('Invalid credentials.', 422))
+        return next(new Error('Invalid credentials.', 422))
     }
     await user.remove()
 
@@ -196,14 +195,14 @@ router.delete('/:id', [auth, [access("Admin", "Service"), [
 ]]], asyncHandler( async(req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return next(new ErrorResponse(errors.array()[0].msg, 422))
+        return next(new Error(errors.array()[0].msg, 422))
     }
 
     const user = await User.findById(req.user.id).select('-password')
 
     
     if (user.role !== "Admin" || user._id !== process.env.SERVICE_ID ) {
-        return next(new ErrorResponse('User not authorized.', 401));
+        return next(new Error('User not authorized.', 401));
     }
 
     const user_to_delete = await User.findById(req.params.id)

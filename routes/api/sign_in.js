@@ -3,7 +3,7 @@ const sign_in = async(user, status, res) => {
     const token = user.getSignedToken()
     
     if ( !token ) {
-        return ErrorResponse('Authorization error.', 422)
+        return Error('Authorization error.', 422)
     }
 
     const options = {
