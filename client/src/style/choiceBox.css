@@ -25,3 +25,42 @@
 {
     cursor: pointer;
 }
+nav
+{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    nav
+    {
+        width: 30%;
+        float: left;
+    }
+    .choice-box
+    {
+        width: 100%;
+        padding: 7.5px;
+    }
+    .choice-box p
+    {
+        width: 100%;
+        margin: 0;
+    }
+
+    .choice-box ul
+    {
+        margin: 0;
+        border: 1px solid #000;
+        cursor: default;
+    }
+
+    .choice-box ul li
+    {
+        cursor: default;
+    }
+
+    .choice-box ul li span
+    {
+        cursor: pointer;
+    }
+}

@@ -35,13 +35,15 @@ class Chart extends Component {
 
     }
 
+
     render() {
 
         return (
             <Fragment>
-                <div className="chart-box">
+                <div className="doughnut-box">
                     <p>{this.props.label}</p>
-                    <Bar data={this.state.chartData} options={{}} />
+                    
+                    <Doughnut data={this.state.chartData} options={{}} />
                 </div>
             </Fragment>
         );

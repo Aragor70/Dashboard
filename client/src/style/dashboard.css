@@ -1,0 +1,327 @@
+.dashboard-content
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.main-intro
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 16px;
+}
+.main-intro p
+{
+    margin-top: 0;
+}
+.main-intro ul
+{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+    font-size: 23px;
+}
+
+.main-calendar
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.main-calendar p
+{
+    margin-top: 0;
+}
+
+.main-calendar ul
+{
+    width: 100%;
+    height: auto;
+}
+
+.main-tables
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.main-table
+{
+    width: 100%;
+    height: auto;
+}
+
+.main-table table
+{
+    width: 100%;
+    height: auto;
+}
+.main-table table tr
+{
+    padding: 0 7.5px;
+    min-width: 100%;
+    overflow-x: auto;
+}
+.main-table table td
+{
+    padding: 0 15px 0 0;
+}
+
+.main-table table th
+{
+    padding: 0 2.5px 0 0;
+}
+
+.main-table ul 
+{
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.main-table ul li
+{
+    width: 30%;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+
+    .dashboard-content
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .main-intro
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 16px;
+    }
+    .main-intro p
+    {
+        margin-top: 0;
+    }
+    .main-intro ul
+    {
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        text-align: center;
+        font-size: 23px;
+    }
+
+    .main-calendar
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .main-calendar p
+    {
+        margin-top: 0;
+    }
+
+    .main-calendar ul
+    {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-tables
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .main-table
+    {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-table table
+    {
+        width: 100%;
+        height: auto;
+    }
+    .main-table table tr
+    {
+        padding: 0 7.5px;
+        min-width: 100%;
+        overflow-x: auto;
+    }
+    .main-table table td
+    {
+        padding: 0 15px 0 0;
+    }
+
+    .main-table table th
+    {
+        padding: 0 2.5px 0 0;
+    }
+
+    .main-table ul 
+    {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        display: flex;
+    }
+
+    .main-table ul li
+    {
+        width: 30%;
+        margin: 0;
+    }
+}
+
+
+@media (min-width: 1023px) {
+
+    .dashboard-content
+    {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .main-intro
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 16px;
+    }
+    .main-intro p
+    {
+        margin-top: 0;
+    }
+    .main-intro ul
+    {
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        text-align: center;
+        font-size: 23px;
+    }
+
+    .main-calendar
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .main-calendar p
+    {
+        margin-top: 0;
+    }
+
+    .main-calendar ul
+    {
+        width: 100%;
+        height: auto;
+    }
+    .main-tables
+    {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .main-table
+    {
+        width: 50%;
+        height: auto;
+        float: left;
+    }
+
+    .main-table table
+    {
+        width: 100%;
+        height: auto;
+    }
+    .main-table table tr
+    {
+        padding: 0 7.5px;
+        min-width: 100%;
+        overflow-x: auto;
+    }
+    .main-table table td
+    {
+        padding: 0 15px 0 0;
+    }
+
+    .main-table table th
+    {
+        padding: 0 2.5px 0 0;
+    }
+
+    .main-table ul 
+    {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        display: flex;
+    }
+
+    .main-table ul li
+    {
+        width: 30%;
+        margin: 0;
+    }
+}

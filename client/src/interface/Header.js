@@ -7,7 +7,7 @@ const Header = ({ history }) => {
 
     return (
         <Fragment>
-            <h2>Finance dashboard</h2>
+            <h2>Investment dashboard</h2>
         
             <ul>
                 <li onClick={e=>history.push('/')}>home page</li>

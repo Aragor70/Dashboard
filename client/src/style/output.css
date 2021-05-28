@@ -1,7 +1,9 @@
 main
 {
     width: 100%;
-    height: auto;
+    height: 88vh;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .page-title
@@ -15,4 +17,29 @@ main
     width: 100%;
     height: auto;
     padding: 7.5px;
+}
+
+@media (min-width: 768px) {
+    main
+    {
+        width: 100%;
+    }
+
+    .page-title
+    {
+        padding: 0 7.5px 0 7.5px;
+        margin: 0;
+    }
+
+    .output
+    {
+        width: 70%;
+        height: auto;
+        padding: 7.5px;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
 }

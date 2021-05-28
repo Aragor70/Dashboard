@@ -8,6 +8,7 @@ import './style/header.css';
 import './style/output.css';
 import './style/choiceBox.css';
 import './style/chartBox.css';
+import './style/dashboard.css';
 
 ReactDOM.render(
   <React.StrictMode>
