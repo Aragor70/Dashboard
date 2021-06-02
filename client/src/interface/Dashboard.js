@@ -8,15 +8,95 @@ import Chart from './Chart';
 
 const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, project, projects, setProject }) => {
 
-    
+    const [ doughnutData, setDoughnutData ] = useState([]);
+    const [ doughnutLabels, setDoughnutLabels ] = useState([]);
+    const [ doughnutLabel, setDoughnutLabel ] = useState("");
+    const [ doughnutSelect, setDoughnutSelect ] = useState("")
+
+    const [ chartData, setChartData ] = useState([]);
+    const [ chartLabels, setChartLabels ] = useState([]);
+    const [ chartLabel, setChartLabel ] = useState("");
+    const [ chartSelect, setChartSelect ] = useState("")
+
+    useEffect(() => {
+        
+        if (doughnutSelect === "" || doughnutSelect === "region") {
+            setDoughnutData([...dataset.filter((element) => year ? element.year === year : true).filter((element) => region ? element.region === region : true).map((element) => element.platforms.length)])
+            setDoughnutLabels([...dataset.filter((element) => year ? element.year === year : true).filter((element) => region ? element.region === region : true).map((element) => element.region)])    
+            setDoughnutLabel("Number of projects")
+        } else {
+            setDoughnutData([])
+            setDoughnutLabels([])
+            setDoughnutLabel("")
+        }
+        
+        if (platform && doughnutSelect === "" || doughnutSelect === "region") {
+            setDoughnutData([...projects.filter((element) => element.platform === platform).map((element) => element.volumeTotal)])
+            setDoughnutLabels([...projects.filter((element) => element.platform === platform).map((element) => element.projectName)])
+            setDoughnutLabel("Platform")
+        }
+        
+        
+    }, [ year, region, doughnutSelect, platform, projects]);
+    console.log(platform)
+    useEffect(() => {
+        
+        if (chartSelect === "" || chartSelect === "region") {
+            setChartData([...dataset.filter((element) => year ? element.year === year : true).filter((element) => region ? element.region === region : true).map((element) => element.platforms.length)])
+            setChartLabels([...dataset.filter((element) => year ? element.year === year : true).filter((element) => region ? element.region === region : true).map((element) => element.region)])    
+            setChartLabel("Number of projects")
+        } else {
+            setChartData([])
+            setChartLabels([])
+            setChartLabel("")
+        }
+
+        if (platform && chartSelect === "" || chartSelect === "region") {
+            setChartData([...projects.filter((element) => element.platform === platform).map((element) => element.volumeTotal)])
+            setChartLabels([...projects.filter((element) => element.platform === platform).map((element) => element.projectName)])
+            setChartLabel("Platform")
+        }
+        
+        
+    }, [ year, region, chartSelect, platform, projects ]);
+
+
     return (
         <Fragment>
             <section className="dashboard-content">
                 
+                
+                <Doughnut label={doughnutLabel} data={doughnutData} labels={doughnutLabels} doughnutSelect={doughnutSelect} setDoughnutSelect={setDoughnutSelect} platform={platform} />
+                
+                {
+                    project ? <Fragment>
+                        <section className="block-box">
+                            
+                            <p>{project.projectName || 'N/A'}</p>
+                            <ul>
+                                <li><span>status</span> <span>{project.status || 'N/A'}</span></li>
+                                <li><span>typeOfInvestment</span> <span>{project.typeOfInvestment || 'N/A'}</span></li>
+                                <li><span>typeOfProperty</span> <span>{project.typeOfProperty || 'N/A'}</span></li>
+                                <li><span>project</span> <span>{project.project || 'N/A'}</span></li>
+                                <li><span>term</span> <span>{project.term ? project.term + ' months' : 'N/A'}</span></li>
 
-                <Doughnut label="Number by regions" data={[...dataset.map((element) => element.platforms.length)]} labels={[...dataset.map((element) => element.region)]} />
-                <Chart label="Number in timeline" data={[...dataset.map((element) => element.platforms.length)]} labels={[...dataset.map((element) => element.region)]} />
+                                <li><span>yieldPA</span> <span>{project.yieldPA ? project.yieldPA + ' %' : 'N/A'}</span></li>
+                                <li><span>totalYield</span> <span>{project.totalYield ? project.totalYield + ' %' : 'N/A'}</span></li>
+                                <li><span>volumeTotal</span> <span>{project.volumeTotal ? project.currency ? project.volumeTotal + ' ' + project.currency : project.volumeTotal : 'N/A'}</span></li>
+                                <li><span>volumeInvested</span> <span>{project.volumeInvested ? project.currency ? project.volumeInvested + ' ' + project.currency : project.volumeInvested : 'N/A'}</span></li>
+                                <li><span>volumeLeft</span> <span>{project.volumeLeft ? project.currency ? project.volumeLeft + ' ' + project.currency : project.volumeLeft : 'N/A'}</span></li>
 
+                                <li><span>minimumInvestment</span> <span>{project.minimumInvestment ? project.currency ? project.minimumInvestment + ' ' + project.currency : project.minimumInvestment : 'N/A'}</span></li>
+                                <li><span>country</span> <span>{project.country || 'N/A'}</span></li>
+                                <li><span>numberOfInvestors</span> <span>{project.numberOfInvestors || 'N/A'}</span></li>
+                                <li><span>scrapedAt</span> <span>{project.scrapedAt || 'N/A'}</span></li>
+                            </ul>
+                        </section>
+                    </Fragment> : <Fragment>
+                        <Chart label={chartLabel} data={chartData} labels={chartLabels} chartSelect={chartSelect} setChartSelect={setChartSelect} platform={platform} />
+                    </Fragment>
+                }
+                
                 
                 <section className="main-tables">
 

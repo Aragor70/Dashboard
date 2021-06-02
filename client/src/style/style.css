@@ -37,7 +37,34 @@ hr
     margin-left: 0;
     margin-right: 0;
 }
-
+span
+{
+    cursor: default;
+}
+p
+{
+    cursor: default;
+}
+ul
+{
+    cursor: default;
+}
+li
+{
+    cursor: default;
+}
+h2
+{
+    cursor: default;
+}
+h3
+{
+    cursor: default;
+}
+select
+{
+    cursor: pointer;
+}
 
 .shadow
 {

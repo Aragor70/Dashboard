@@ -9,6 +9,7 @@ import './style/output.css';
 import './style/choiceBox.css';
 import './style/chartBox.css';
 import './style/dashboard.css';
+import './style/blockBox.css';
 
 ReactDOM.render(
   <React.StrictMode>

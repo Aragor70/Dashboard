@@ -117,46 +117,23 @@ const App = () => {
           platformId: 190,
           platform: 'StockCrowd IN',
           countryOfPlatform: 'Spain',
-          url: false,
+          url: 'https://www.stockcrowdin.com/boxweb/dinerario/192?',
           id: -1363971089,
           projectName: 'Ragull',
           status: 'PAID_OUT',
-          typeOfInvestment: false,
+          typeOfInvestment: 'DEBT',
           typeOfProperty: 'RESIDENTIAL',
-          project: false,
+          project: 'DEVELOPMENT',
           term: 8,
           yieldPA: 15,
           totalYield: 9.93,
           volumeTotal: 300000,
-          volumeInvested: false,
+          volumeInvested: 300000,
           volumeLeft: 0,
           currency: '€',
           minimumInvestment: 1000,
           country: 'Spain',
           numberOfInvestors: 18,
-          scrapedAt: '26/05/2021 - 17:38'
-        },
-        {
-          platformId: 190,
-          platform: 'StockCrowd IN',
-          countryOfPlatform: 'Spain',
-          url: false,
-          id: -1479965196,
-          projectName: 'Marqués de Cádiz - Málaga',
-          status: 'CANCELED',
-          typeOfInvestment: false,
-          typeOfProperty: 'RESIDENTIAL',
-          project: false,
-          term: 12,
-          yieldPA: 8,
-          totalYield: 8,
-          volumeTotal: 500000,
-          volumeInvested: false,
-          volumeLeft: 338594,
-          currency: '€',
-          minimumInvestment: 500,
-          country: 'Spain',
-          numberOfInvestors: 58,
           scrapedAt: '26/05/2021 - 17:38'
         }
       ]
@@ -172,9 +149,9 @@ const App = () => {
   const [ platforms, setPlatforms ] = useState([])
   const [ projects, setProjects ] = useState([])
 
-  console.log(year, 'year')
+  /* console.log(year, 'year')
   console.log(region, 'region')
-  console.log(platform, 'platform')
+  console.log(platform, 'platform') */
 
   useEffect(() => {
 
@@ -196,9 +173,13 @@ const App = () => {
     
     if (platform && !platformNames.includes(platform)) setPlatform("");
     
-  }, [year, region, platform]);
+    if(project && platform && project.platform !== platform) {
+      setProject(null)
+    }
 
-  console.log(regions)
+
+  }, [year, region, platform, project]);
+
   const data = [ 2, 4, 2, 4 ]
 
   const labels = [ 'A', 'B', 'C', 'D' ]
@@ -240,11 +221,50 @@ const App = () => {
                 </ul>
               </div>
               <div className="main-intro">
-                    <p>UK + IRE</p>
-                    <ul>
-                        <li>currenctly</li>
-                        <li>10-05-2021</li>
-                    </ul>
+                  <ul>
+                    {
+                      year ? <li>
+                        <p>year</p>
+                        <span>{year}</span>
+                      </li> : <li>
+                        <p>year</p>
+                        <span>All</span>
+                      </li>
+                    }
+                    
+                    {
+                      region ? <li>
+                        <p>region</p>
+                        <span>{region}</span>
+                      </li> : <li>
+                        <p>region</p>
+                        <span>All</span>
+                      </li>
+                    }
+
+                    {
+                      platform ? <li>
+                        <p>platform</p>
+                        <span>{platform}</span>
+                      </li> : <li>
+                        <p>platform</p>
+                        <span>All</span>
+                      </li>
+                    }
+                  </ul>
+              </div>
+              <div className="main-intro">
+                <ul>
+                  {
+                    project ? <li>
+                      <p>project</p>
+                      <span>{project.projectName}</span>
+                    </li> : <li>
+                      <p>project</p>
+                      <span>All</span>
+                    </li>
+                  }
+                </ul>
               </div>
               <div className="main-calendar">
                   <p><span>Calendar</span></p>
