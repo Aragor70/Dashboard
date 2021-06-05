@@ -122,7 +122,7 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
                         <ol>
                             <li><span>ID</span><span>Platform name</span></li>
                             {
-                                platforms.map((element, index) => <li style={ element === platform ? { color: 'green' } : { color: '#000' } } key={index}><span onClick={e=> setPlatform(element)}>{index + 1}.</span><span onClick={e=> setPlatform(element)}>{element}</span></li>)
+                                platforms.filter((element) => searchData.platform ? element.toLowerCase().includes(searchData.platform.toLowerCase()) : true ).map((element, index) => <li style={ element === platform ? { color: 'green' } : { color: '#000' } } key={index}><span onClick={e=> setPlatform(element)}>{index + 1}.</span><span onClick={e=> setPlatform(element)}>{element}</span></li>)
                             }
                         </ol>
                     </div>
@@ -133,7 +133,7 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
                         <ol>
                             <li><span>ID</span><span>Project name</span></li>
                             {
-                                projects.map((element, index) => <li style={ project ? element.projectName === project.projectName ? { color: 'green' } : { color: '#000' } : { color: '#000' } } key={index}><span onClick={e=> setProject(element)}>{index + 1}.</span><span onClick={e=> setProject(element)}>{element.projectName}</span></li>)
+                                projects.filter((element) => searchData.project ? element.projectName.toLowerCase().includes(searchData.project.toLowerCase()) : true ).map((element, index) => <li style={ project ? element.projectName === project.projectName ? { color: 'green' } : { color: '#000' } : { color: '#000' } } key={index}><span onClick={e=> setProject(element)}>{index + 1}.</span><span onClick={e=> setProject(element)}>{element.projectName}</span></li>)
                             }
                         </ol>
                     </div>
