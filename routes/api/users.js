@@ -8,7 +8,6 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 
 const sign_in = require('./sign_in');
-const access = require('../../middlewares/access');
 
 //route POST   api/users
 //description  register new user
@@ -188,11 +187,11 @@ router.delete('/', [auth, [
 //route DELETE api/users
 //description  delete user account + profile + notification + about
 //access       private
-router.delete('/:id', [auth, [access("Admin", "Service"), [
+router.delete('/:id', [auth, [
     check('password', 'Enter user password.')
     .not()
     .isEmpty()
-]]], asyncHandler( async(req, res, next) => {
+]], asyncHandler( async(req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return next(new Error(errors.array()[0].msg, 422))
