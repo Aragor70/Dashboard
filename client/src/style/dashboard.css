@@ -10,30 +10,73 @@
 }
 
 .main-intro
-{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding: 16px;
-}
-.main-intro p
-{
-    margin-top: 0;
-}
-.main-intro ul
-{
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    text-align: center;
-    font-size: 23px;
-}
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        padding: 7.5px;
+    }
+    .main-intro p
+    {
+        margin-top: 0;
+    }
+    .main-intro ul
+    {
+        width: 100%;
+        height: 75px;
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        text-align: center;
+        font-size: 23px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        box-shadow: rgb(0 0 0 / 20%) -1px 7.5px 7.5px 0px;
+    }
+    .main-intro ul li
+    {
+        width: 100%;
+        word-break: normal;
+        font-size: 15px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .main-intro ul li span
+    {
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        padding: 0 3.5px;
+    }
+    .main-intro ul p
+    {
+        font-size: 12px;
+        height: auto;
+        margin: 7.5px 0;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
+    }
 
 .main-calendar
 {
@@ -56,6 +99,31 @@
     width: 100%;
     height: auto;
 }
+.main-charts
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-charts p
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 0 0 7.5px;
+}
+.main-charts p select
+{
+    height: auto;
+    border: none;
+    font-size: 12px;
+    padding: 2.5px 7.5px;
+}
 
 .main-tables
 {
@@ -73,27 +141,33 @@
     height: auto;
 }
 
-.main-table table
+.main-table ol
 {
     width: 100%;
     height: auto;
+    list-style: none;
+    padding: 0;
 }
-.main-table table tr
+.main-table ol li
 {
     padding: 0 7.5px;
     min-width: 100%;
     overflow-x: auto;
     cursor: default;
 }
-.main-table table td
+.main-table ol span
 {
-    padding: 0 15px 0 0;
-    cursor: default;
+    padding: 0 15px;
+    cursor: pointer;
 }
 
-.main-table table th
+.main-table ol li:nth-child(1)
 {
-    padding: 0 2.5px 0 0;
+    padding: 0 7.5px;
+    cursor: default;
+}
+.main-table ol li:nth-child(1) span
+{
     cursor: default;
 }
 
@@ -108,9 +182,66 @@
 
 .main-table ul li
 {
-    width: 30%;
+    width: 20%;
     margin: 0;
 }
+
+
+.li-search-field
+{
+    width: calc(100% - 64px)!important;
+    
+    border-bottom: 1px solid #000;
+    position: relative;
+}
+
+.main-table ul li:nth-child(1)
+{
+    width: 64px;
+    margin: 0;
+    text-align: center;
+    padding: 0 15px;
+}
+.main-table ul li:nth-child(1) span
+{
+    cursor: pointer;
+}
+
+
+.main-table-search-button
+{
+    width: 100%;
+    height: 100%;
+    padding: 0 7.5px;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.main-search-input
+{
+    width: 100%;
+    border: none;
+    height: 100%;
+    overflow: hidden;
+}
+
+.clear-button
+{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    bottom: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 15px;
+    cursor: pointer;
+}
+
 
 @media (min-width: 768px) {
 
@@ -131,8 +262,8 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        flex-direction: column;
-        padding: 16px;
+        flex-direction: row;
+        padding: 7.5px;
     }
     .main-intro p
     {
@@ -140,6 +271,8 @@
     }
     .main-intro ul
     {
+        width: 100%;
+        height: 75px;
         list-style: none;
         text-decoration: none;
         margin: 0;
@@ -148,6 +281,47 @@
         margin-block-end: 0;
         text-align: center;
         font-size: 23px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        box-shadow: rgb(0 0 0 / 20%) -1px 7.5px 7.5px 0px;
+    }
+    .main-intro ul li
+    {
+        width: 100%;
+        word-break: normal;
+        font-size: 15px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .main-intro ul li span
+    {
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        padding: 0 3.5px;
+    }
+    .main-intro ul p
+    {
+        font-size: 12px;
+        height: auto;
+        margin: 7.5px 0;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
     }
 
     .main-calendar
@@ -172,6 +346,16 @@
         height: auto;
     }
 
+    .main-charts
+    {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
     .main-tables
     {
         width: 100%;
@@ -188,25 +372,25 @@
         height: auto;
     }
 
-    .main-table table
+    .main-table ol
     {
         width: 100%;
         height: auto;
     }
-    .main-table table tr
+    .main-table ol li
     {
         padding: 0 7.5px;
         min-width: 100%;
         overflow-x: auto;
     }
-    .main-table table td
+    .main-table ol span
     {
-        padding: 0 15px 0 0;
+        padding: 0 15px;
     }
 
-    .main-table table th
+    .main-table ol li:nth-child(1)
     {
-        padding: 0 2.5px 0 0;
+        padding: 0 7.5px;
     }
 
     .main-table ul 
@@ -251,7 +435,7 @@
     .main-intro ul
     {
         width: 100%;
-        height: 65px;
+        height: 75px;
         list-style: none;
         text-decoration: none;
         margin: 0;
@@ -268,7 +452,7 @@
     }
     .main-intro ul li
     {
-        width: 33.33%;
+        width: 100%;
         word-break: normal;
         font-size: 15px;
         position: relative;
@@ -323,45 +507,88 @@
         width: 100%;
         height: auto;
     }
+
+    .main-charts
+    {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        grid-template-rows: repeat(1,1fr);
+        overflow: hidden;
+        column-gap: 15px;
+    }
+
+    .doughnut-box
+    {
+        width: auto;
+        height: 100%;
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+
+    .chart-box
+    {
+        width: auto;
+        grid-column: 3/8;
+        grid-row: 1/2;
+        border: none;
+    }
+
+    .block-box
+    {
+        width: auto;
+        grid-column: 3/8;
+        grid-row: 1/2;
+        
+    }
+
     .main-tables
     {
         width: 100%;
         height: auto;
-        display: block;
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        column-gap: 15px;
     }
-    .main-table
+    
+    .main-table:nth-child(1)
     {
-        width: 30%;
-        height: auto;
-        float: left;
+        width: auto;
+        grid-column: 1/3;
     }
+    
     .main-table:nth-child(2)
     {
-        width: calc(70% - 15px);
-        height: auto;
-        float: left;
-        margin-left: 15px;
+        width: auto;
+        grid-column: 3/8;
     }
 
-    .main-table table
+    .main-table ol
     {
         width: 100%;
         height: auto;
+        list-style: none;
+        padding: 0;
     }
-    .main-table table tr
+    .main-table p
+    {
+        padding: 0 7.5px;
+    }
+    .main-table ol li
     {
         padding: 0 7.5px;
         min-width: 100%;
         overflow-x: auto;
     }
-    .main-table table td
+    .main-table ol li:nth-child(1)
     {
-        padding: 0 15px 0 0;
+        font-weight: bolder;
     }
 
-    .main-table table th
+    
+    .main-table ol span
     {
-        padding: 0 2.5px 0 0;
+        padding: 0 7.5px;
     }
 
     .main-table ul 
@@ -374,7 +601,26 @@
 
     .main-table ul li
     {
-        width: 30%;
+        width: auto;
         margin: 0;
     }
+
+    .main-table ul li:nth-child(1)
+    {
+        width: 64px;
+        margin: 0;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .li-search-field
+    {
+        width: calc(100% - 64px);
+    }
+
+    .clear-button:hover
+    {
+        color: red;
+    }
+    
 }

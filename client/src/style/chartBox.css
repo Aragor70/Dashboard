@@ -82,44 +82,40 @@
 
 
 @media (min-width: 1023px) {
-    .chart-box
-    {
-        width: 70%;
-        
-        border: none;
-        margin-bottom: 7.5px;
-        overflow: hidden;
-    }
+    
     .chart-box p
     {
         width: 100%;
         margin: 0;
         padding: 0 7.5px;
+        height: 10%;
     }
     .chart-box canvas
     {
         max-width: 100%;
         padding: 15px;
         overflow: hidden;
-    }
-    .doughnut-box
-    {
-        width: 30%;
-        float: left;
+        height: 90%;
     }
 
     .doughnut-box canvas
     {
         max-width: 100%;
-        height: auto;
         padding: 15px;
         overflow: hidden;
         float: left;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
     .doughnut-box p
     {
         width: 100%;
         margin: 0;
         padding: 0 7.5px;
+        float: left;
+        height: 10%;
     }
 }

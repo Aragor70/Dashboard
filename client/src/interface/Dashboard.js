@@ -18,6 +18,21 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
     const [ chartLabel, setChartLabel ] = useState("");
     const [ chartSelect, setChartSelect ] = useState("")
 
+    const [ searchData, setSearchData ] = useState({
+        project: "",
+        platform: "",
+    })
+    const [ searchTogglePlatform, setSearchTogglePlatform ] = useState(false)
+    const [ searchToggleProject, setSearchToggleProject ] = useState(false)
+
+    const handleSearchChange = (e) => {
+        setSearchData({ ...searchData, [e.target.name]: e.target.value })
+
+    }
+
+
+
+
     useEffect(() => {
         
         if (doughnutSelect === "" || doughnutSelect === "region") {
@@ -37,8 +52,8 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
         }
         
         
-    }, [ year, region, doughnutSelect, platform, projects]);
-    console.log(platform)
+    }, [ year, region, doughnutSelect, platform, projects ]);
+    
     useEffect(() => {
         
         if (chartSelect === "" || chartSelect === "region") {
@@ -65,61 +80,63 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
         <Fragment>
             <section className="dashboard-content">
                 
-                
-                <Doughnut label={doughnutLabel} data={doughnutData} labels={doughnutLabels} doughnutSelect={doughnutSelect} setDoughnutSelect={setDoughnutSelect} platform={platform} />
-                
-                {
-                    project ? <Fragment>
-                        <section className="block-box">
-                            
-                            <p>{project.projectName || 'N/A'}</p>
-                            <ul>
-                                <li><span>status</span> <span>{project.status || 'N/A'}</span></li>
-                                <li><span>typeOfInvestment</span> <span>{project.typeOfInvestment || 'N/A'}</span></li>
-                                <li><span>typeOfProperty</span> <span>{project.typeOfProperty || 'N/A'}</span></li>
-                                <li><span>project</span> <span>{project.project || 'N/A'}</span></li>
-                                <li><span>term</span> <span>{project.term ? project.term + ' months' : 'N/A'}</span></li>
+                <section className="main-charts">
+                    <Doughnut label={doughnutLabel} data={doughnutData} labels={doughnutLabels} doughnutSelect={doughnutSelect} setDoughnutSelect={setDoughnutSelect} platform={platform} />
+                    
+                    {
+                        project ? <Fragment>
+                            <section className="block-box">
+                                
+                                <p>{project.projectName || 'N/A'}</p>
+                                <ul>
+                                    <li><span>status</span> <span>{project.status || 'N/A'}</span></li>
+                                    <li><span>typeOfInvestment</span> <span>{project.typeOfInvestment || 'N/A'}</span></li>
+                                    <li><span>typeOfProperty</span> <span>{project.typeOfProperty || 'N/A'}</span></li>
+                                    <li><span>project</span> <span>{project.project || 'N/A'}</span></li>
+                                    <li><span>term</span> <span>{project.term ? project.term + ' months' : 'N/A'}</span></li>
 
-                                <li><span>yieldPA</span> <span>{project.yieldPA ? project.yieldPA + ' %' : 'N/A'}</span></li>
-                                <li><span>totalYield</span> <span>{project.totalYield ? project.totalYield + ' %' : 'N/A'}</span></li>
-                                <li><span>volumeTotal</span> <span>{project.volumeTotal ? project.currency ? project.volumeTotal + ' ' + project.currency : project.volumeTotal : 'N/A'}</span></li>
-                                <li><span>volumeInvested</span> <span>{project.volumeInvested ? project.currency ? project.volumeInvested + ' ' + project.currency : project.volumeInvested : 'N/A'}</span></li>
-                                <li><span>volumeLeft</span> <span>{project.volumeLeft ? project.currency ? project.volumeLeft + ' ' + project.currency : project.volumeLeft : 'N/A'}</span></li>
+                                    <li><span>yieldPA</span> <span>{project.yieldPA ? project.yieldPA + ' %' : 'N/A'}</span></li>
+                                    <li><span>totalYield</span> <span>{project.totalYield ? project.totalYield + ' %' : 'N/A'}</span></li>
+                                    <li><span>volumeTotal</span> <span>{project.volumeTotal ? project.currency ? project.volumeTotal + ' ' + project.currency : project.volumeTotal : 'N/A'}</span></li>
+                                    <li><span>volumeInvested</span> <span>{project.volumeInvested ? project.currency ? project.volumeInvested + ' ' + project.currency : project.volumeInvested : 'N/A'}</span></li>
+                                    <li><span>volumeLeft</span> <span>{project.volumeLeft ? project.currency ? project.volumeLeft + ' ' + project.currency : project.volumeLeft : 'N/A'}</span></li>
 
-                                <li><span>minimumInvestment</span> <span>{project.minimumInvestment ? project.currency ? project.minimumInvestment + ' ' + project.currency : project.minimumInvestment : 'N/A'}</span></li>
-                                <li><span>country</span> <span>{project.country || 'N/A'}</span></li>
-                                <li><span>numberOfInvestors</span> <span>{project.numberOfInvestors || 'N/A'}</span></li>
-                                <li><span>scrapedAt</span> <span>{project.scrapedAt || 'N/A'}</span></li>
-                            </ul>
-                        </section>
-                    </Fragment> : <Fragment>
-                        <Chart label={chartLabel} data={chartData} labels={chartLabels} chartSelect={chartSelect} setChartSelect={setChartSelect} platform={platform} />
-                    </Fragment>
-                }
-                
+                                    <li><span>minimumInvestment</span> <span>{project.minimumInvestment ? project.currency ? project.minimumInvestment + ' ' + project.currency : project.minimumInvestment : 'N/A'}</span></li>
+                                    <li><span>country</span> <span>{project.country || 'N/A'}</span></li>
+                                    <li><span>numberOfInvestors</span> <span>{project.numberOfInvestors || 'N/A'}</span></li>
+                                    <li><span>scrapedAt</span> <span>{project.scrapedAt || 'N/A'}</span></li>
+                                </ul>
+                            </section>
+                        </Fragment> : <Fragment>
+                            <Chart label={chartLabel} data={chartData} labels={chartLabels} chartSelect={chartSelect} setChartSelect={setChartSelect} platform={platform} />
+                        </Fragment>
+                    }
+                </section>
                 
                 <section className="main-tables">
 
                     <div className="main-table">
                         <p><span>Platform</span></p>
-                        <ul><li style={ platform ? { color: '#000' } : { color: 'green' } } onClick={e=> setPlatform("")}>All</li><li>filter by ...</li></ul>
-                        <table>
-                            <tr><th>ID</th><th>Platform name</th></tr>
+                        {/* eslint-disable-next-line */}
+                        <ul><li style={ platform ? { color: '#000' } : { color: 'green' } } onClick={e=> {setPlatform(null), setSearchData({...searchData, platform: ""}), setSearchTogglePlatform(false)}}><span>All</span></li><li className="li-search-field"><button style={ searchTogglePlatform ? { display: 'none' } : searchData.platform ? { display: 'none' } : { display: 'block' } } className="main-table-search-button" onClick={e=> searchData.platform ? setSearchTogglePlatform(true) : setSearchTogglePlatform(!searchTogglePlatform)}>search</button><input style={searchTogglePlatform ? { display: 'block' } : searchData.platform ? { display: 'block' } : { display: 'none' }} className="main-search-input" type="text" name="platform" value={searchData.platform || ""} onChange={e => handleSearchChange(e)} /><button style={searchTogglePlatform ? { display: 'block'} : { display: 'none' }} className="clear-button" onClick={e=> {setSearchTogglePlatform(false), setSearchData({...searchData, platform: ""})}}>X</button></li></ul>
+                        <ol>
+                            <li><span>ID</span><span>Platform name</span></li>
                             {
-                                platforms.map((element, index) => <tr style={ element === platform ? { color: 'green' } : { color: '#000' } } key={index} onClick={e=> setPlatform(element)}><td>{index + 1}.</td><td>{element}</td></tr>)
+                                platforms.map((element, index) => <li style={ element === platform ? { color: 'green' } : { color: '#000' } } key={index}><span onClick={e=> setPlatform(element)}>{index + 1}.</span><span onClick={e=> setPlatform(element)}>{element}</span></li>)
                             }
-                        </table>
+                        </ol>
                     </div>
 
                     <div className="main-table">
                         <p><span>Project</span></p>
-                        <ul><li style={ project ? { color: '#000' } : { color: 'green' } } onClick={e=> setProject(null)}>All</li><li>filter by ...</li></ul>
-                        <table>
-                            <tr><th>ID</th><th>Project name</th></tr>
+                        {/* eslint-disable-next-line */}
+                        <ul><li style={ project ? { color: '#000' } : { color: 'green' } } onClick={e=> {setProject(null), setSearchData({...searchData, project: ""}), setSearchToggleProject(false)}}><span>All</span></li><li className="li-search-field"><button style={ searchToggleProject ? { display: 'none' } : searchData.project ? { display: 'none' } : { display: 'block' } } className="main-table-search-button" onClick={e=> searchData.project ? setSearchToggleProject(true) : setSearchToggleProject(!searchToggleProject)}>search</button><input style={searchToggleProject ? { display: 'block' } : searchData.project ? { display: 'block' } : { display: 'none' }} className="main-search-input" type="text" name="project" value={searchData.project || ""} onChange={e => handleSearchChange(e)} /><button style={searchToggleProject ? { display: 'block'} : { display: 'none' }} className="clear-button" onClick={e=> {setSearchToggleProject(false), setSearchData({...searchData, project: ""})}}>X</button></li></ul>
+                        <ol>
+                            <li><span>ID</span><span>Project name</span></li>
                             {
-                                projects.map((element, index) => <tr style={ project ? element.projectName === project.projectName ? { color: 'green' } : { color: '#000' } : { color: '#000' } } key={index} onClick={e=> setProject(element)}><td>{index + 1}.</td><td>{element.projectName}</td></tr>)
+                                projects.map((element, index) => <li style={ project ? element.projectName === project.projectName ? { color: 'green' } : { color: '#000' } : { color: '#000' } } key={index}><span onClick={e=> setProject(element)}>{index + 1}.</span><span onClick={e=> setProject(element)}>{element.projectName}</span></li>)
                             }
-                        </table>
+                        </ol>
                     </div>
                 </section>
             </section>

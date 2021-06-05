@@ -45,7 +45,7 @@ const Chart = ({ data, label, labels, chartSelect, setChartSelect, platform }) =
         return (
             <Fragment>
                 <div className="chart-box">
-                    <p>{label}
+                    <p><span>{label}</span>
                     <select onChange={e => handleChange(e)}>
                         <option value="region">region</option>
                         <option value="status">status</option>
