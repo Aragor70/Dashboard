@@ -2,6 +2,7 @@ require('dotenv').config({ path: 'config/config.env' })
 const express = require('express');
 const connect = require('./config/connect');
 const app = express();
+const path = require('path');
 
 connect();
 
