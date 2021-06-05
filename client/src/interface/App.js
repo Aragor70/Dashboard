@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
 import Header from './Header';
-import { makeFirstUpper } from '../functions/stringFunction';
 import { Route, Switch } from 'react-router-dom';
 
 

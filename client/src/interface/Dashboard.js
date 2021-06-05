@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Fragment, useEffect, useState } from 'react';
 import Doughnut from './Doughnut';
 import Chart from './Chart';
@@ -52,7 +53,7 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
         }
         
         
-    }, [ year, region, doughnutSelect, platform, projects ]);
+    }, [ year, region, doughnutSelect, platform, projects, dataset ]);
     
     useEffect(() => {
         
@@ -73,7 +74,7 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
         }
         
         
-    }, [ year, region, chartSelect, platform, projects ]);
+    }, [ year, region, chartSelect, platform, projects, dataset ]);
 
 
     return (
@@ -117,7 +118,6 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
 
                     <div className="main-table">
                         <p><span>Platform</span></p>
-                        {/* eslint-disable-next-line */}
                         <ul><li style={ platform ? { color: '#000' } : { color: 'green' } } onClick={e=> {setPlatform(null), setSearchData({...searchData, platform: ""}), setSearchTogglePlatform(false)}}><span>All</span></li><li className="li-search-field"><button style={ searchTogglePlatform ? { display: 'none' } : searchData.platform ? { display: 'none' } : { display: 'block' } } className="main-table-search-button" onClick={e=> searchData.platform ? setSearchTogglePlatform(true) : setSearchTogglePlatform(!searchTogglePlatform)}>search</button><input style={searchTogglePlatform ? { display: 'block' } : searchData.platform ? { display: 'block' } : { display: 'none' }} className="main-search-input" type="text" name="platform" value={searchData.platform || ""} onChange={e => handleSearchChange(e)} /><button style={searchTogglePlatform ? { display: 'block'} : { display: 'none' }} className="clear-button" onClick={e=> {setSearchTogglePlatform(false), setSearchData({...searchData, platform: ""})}}>X</button></li></ul>
                         <ol>
                             <li><span>ID</span><span>Platform name</span></li>
@@ -129,7 +129,6 @@ const Dashboard = ({ dataset, year, region, platform, platforms, setPlatform, pr
 
                     <div className="main-table">
                         <p><span>Project</span></p>
-                        {/* eslint-disable-next-line */}
                         <ul><li style={ project ? { color: '#000' } : { color: 'green' } } onClick={e=> {setProject(null), setSearchData({...searchData, project: ""}), setSearchToggleProject(false)}}><span>All</span></li><li className="li-search-field"><button style={ searchToggleProject ? { display: 'none' } : searchData.project ? { display: 'none' } : { display: 'block' } } className="main-table-search-button" onClick={e=> searchData.project ? setSearchToggleProject(true) : setSearchToggleProject(!searchToggleProject)}>search</button><input style={searchToggleProject ? { display: 'block' } : searchData.project ? { display: 'block' } : { display: 'none' }} className="main-search-input" type="text" name="project" value={searchData.project || ""} onChange={e => handleSearchChange(e)} /><button style={searchToggleProject ? { display: 'block'} : { display: 'none' }} className="clear-button" onClick={e=> {setSearchToggleProject(false), setSearchData({...searchData, project: ""})}}>X</button></li></ul>
                         <ol>
                             <li><span>ID</span><span>Project name</span></li>
