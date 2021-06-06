@@ -16,6 +16,8 @@ Full-stack web application made with JavaScript dedicated to data visualization.
 
 - JavaScript
 
+- CSS
+
 - ReactJS
 
 - NodeJS
