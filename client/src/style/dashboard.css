@@ -10,73 +10,73 @@
 }
 
 .main-intro
-    {
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: row;
-        padding: 7.5px;
-    }
-    .main-intro p
-    {
-        margin-top: 0;
-    }
-    .main-intro ul
-    {
-        width: 100%;
-        height: 75px;
-        list-style: none;
-        text-decoration: none;
-        margin: 0;
-        padding: 0;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        text-align: center;
-        font-size: 23px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: row;
-        box-shadow: rgb(0 0 0 / 20%) -1px 7.5px 7.5px 0px;
-    }
-    .main-intro ul li
-    {
-        width: 100%;
-        word-break: normal;
-        font-size: 15px;
-        position: relative;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        text-align: left;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding: 7.5px;
+}
+.main-intro p
+{
+    margin-top: 0;
+}
+.main-intro ul
+{
+    width: 100%;
+    height: 75px;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+    font-size: 23px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: rgb(0 0 0 / 20%) -1px 7.5px 7.5px 0px;
+}
+.main-intro ul li
+{
+    width: 100%;
+    word-break: normal;
+    font-size: 15px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-    .main-intro ul li span
-    {
-        width: 100%;
-        height: 50%;
-        overflow: hidden;
-        text-align: center;
-        text-overflow: ellipsis;
-        padding: 0 3.5px;
-    }
-    .main-intro ul p
-    {
-        font-size: 12px;
-        height: auto;
-        margin: 7.5px 0;
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-        text-align: center;
-    }
+.main-intro ul li span
+{
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    padding: 0 3.5px;
+}
+.main-intro ul p
+{
+    font-size: 12px;
+    height: auto;
+    margin: 7.5px 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
 
 .main-calendar
 {
@@ -111,6 +111,7 @@
 
 .main-charts p
 {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -240,6 +241,24 @@
     background-color: rgba(255, 255, 255, 0);
     font-size: 15px;
     cursor: pointer;
+}
+
+.doughnut-box
+{
+    width: 100%;
+    height: 100%;
+}
+
+.chart-box
+{
+    width: 100%;
+    border: none;
+}
+
+.block-box
+{
+    width: 100%;
+    
 }
 
 
